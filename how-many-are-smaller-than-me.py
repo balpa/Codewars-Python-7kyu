@@ -2,16 +2,12 @@
 that given an array arr, you have to return the amount of numbers that are smaller than arr[i] to the right.
 """
 
-def equalize(arr):
-    if arr == []:
-        return []
-    else:
-        a = arr[0]
-        final = list(map(lambda x : x-arr[0],arr))
-        res = []
-        for x in range(len(final)):
-            if final[x] < 0:
-                res.append(f"{final[x]}")
-            else:
-                res.append(f"+{final[x]}")
-        return res
+def smaller(arr):
+    final = []
+    for i in range(len(arr)):
+        count = 0
+        for x in range(i+1,len(arr)):
+            if arr[x]< arr[i]:
+                count += 1
+        final.append(count)   
+    return final
